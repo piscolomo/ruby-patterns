@@ -1,3 +1,6 @@
+# Define a family of algorithms, encapsulate each one, and make them
+# interchangeable.
+
 class Hero
   attr_reader :damage, :health, :skills
   attr_accessor :printer
