@@ -10,7 +10,7 @@ class ItemDecorator
   end
 end
 
-class MagicItemDecorator < Decorator
+class MagicItemDecorator < ItemDecorator
   def price
     @item.price * 3
   end
@@ -20,7 +20,7 @@ class MagicItemDecorator < Decorator
   end
 end
 
-class MasterpieceItemDecorator < Decorator
+class MasterpieceItemDecorator < ItemDecorator
   def price
     @item.price * 2
   end
