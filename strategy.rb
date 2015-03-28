@@ -18,13 +18,13 @@ class Hero
   end
 end
 
-class BattleStats < HTMLPrinter
+class BattleStats
   def print(damage, health, skills)
     "Damage: #{damage}\nHealth: #{health}"
   end
 end
 
-class SkillStats < HTMLPrinter
+class SkillStats
   def print(damage, health, skills)
     skills.inject(""){ |result, skill| result + skill.to_s.capitalize + "\n" }
   end
