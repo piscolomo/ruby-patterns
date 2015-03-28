@@ -37,3 +37,17 @@ class Family
     end
   end
 end
+
+# Usage
+family = Family.new "Jackson"
+family.add_father("Robert")
+family.add_mother("Susan")
+family.add_child("Lucas", "M")
+family.add_child("James", "M")
+family.add_child("Rose", "F")
+family.each_member{ |member| puts member.first_name }
+# => Robert
+#    Susan
+#    Lucas
+#    James
+#    Rose
