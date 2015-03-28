@@ -1,14 +1,5 @@
 # Encapsulate a request as an object, thereby letting you parameterize clients
 # with different requests, queue or log requests, and support undoable operations
-
-class Hero
-  attr_reader :money, :health
-  def initialize
-    @money = 0
-    @health = 100
-  end
-end
-
 class Turn
   def initialize
     @commands = []
@@ -20,6 +11,14 @@ class Turn
 
   def undo_command
     @commands.pop.unexecute
+  end
+end
+
+class Hero
+  attr_reader :money, :health
+  def initialize
+    @money = 0
+    @health = 100
   end
 end
 
