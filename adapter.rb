@@ -76,4 +76,4 @@ old_quest_adapted = QuestAdapter.new(some_old_quest, 5)
 hero.take_quest old_quest_adapted
 hero.finish_quest old_quest_adapted
 puts hero.exp
-# => 50
+# => 300
