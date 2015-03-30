@@ -3,8 +3,7 @@ class HeroFactory
   @@instance = nil
 
   def self.instance
-    @@instance = HeroFactory.send(:new) unless @@instance
-    @@instance
+    @@instance ||= HeroFactory.send(:new)
   end
 
   def create_warrior
