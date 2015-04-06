@@ -9,8 +9,12 @@ class Hero
 end
 
 class ComputerProxy
+  # Forwardable allows objects to run methods on behalf
+  # of it's members, in this case the Computer object
   extend Forwardable
 
+  # We delegate the ComputerProxy's use of 
+  # the Computer object's add method
   def_delegators :real_object, :add
 
   def initialize(hero)
