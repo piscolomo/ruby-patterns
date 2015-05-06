@@ -17,7 +17,7 @@ Examples of Patterns in Ruby
   1. [Template](#template)
 
 ## Adapter
-  - Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
+  - Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.<sup>[[link](#adapter)]</sup>
 
   ```ruby
   class Quest
@@ -101,7 +101,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Builder
-  - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+  - Separate the construction of a complex object from its representation so that the same construction process can create different representations.<sup>[[link](#builder)]</sup>
 
   ```ruby
   class BoardBuilder
@@ -153,7 +153,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Command
-  - Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+  - Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.<sup>[[link](#command)]</sup>
 
   ```ruby
   class Turn
@@ -225,7 +225,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Composite
-  - Composition over inheritance. Compose objects intro tree structures to represent part-whole hierarchies.
+  - Composition over inheritance. Compose objects intro tree structures to represent part-whole hierarchies.<sup>[[link](#composite)]</sup>
 
   ```ruby
   class CompositeQuest
@@ -284,7 +284,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Decorator
-  - Attach additional responsabilities to an object dinamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+  - Attach additional responsabilities to an object dinamically. Decorators provide a flexible alternative to subclassing for extending functionality.<sup>[[link](#decorator)]</sup>
 
   ```ruby
   class ItemDecorator
@@ -352,7 +352,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Factory
-  - Define an interface for creating an object, but let subclasses decide which class to instantiate.
+  - Define an interface for creating an object, but let subclasses decide which class to instantiate.<sup>[[link](#factory)]</sup>
 
   ```ruby
   class Party
@@ -405,7 +405,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Iterator
-  - Iterator helps you to iterate through a complex object using an interator method.
+  - Iterator helps you to iterate through a complex object using an interator method.<sup>[[link](#iterator)]</sup>
 
   ```ruby
   class Parent
@@ -463,7 +463,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Observer
-  - Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+  - Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.<sup>[[link](#observer)]</sup>
 
   ```ruby
   module Observable
@@ -541,7 +541,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Proxy
-  - Provide a surrogate or placeholder for another object to control access to it.
+  - Provide a surrogate or placeholder for another object to control access to it.<sup>[[link](#proxy)]</sup>
 
   ```ruby
   class Hero
@@ -609,7 +609,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Singleton
-  - Define an unique instance of an object.
+  - Define an unique instance of an object.<sup>[[link](#singleton)]</sup>
 
   ```ruby
   class HeroFactory
@@ -642,7 +642,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Strategy
-  - Define a family of algorithms, encapsulate each one, and make them interchangeable.
+  - Define a family of algorithms, encapsulate each one, and make them interchangeable.<sup>[[link](#strategy)]</sup>
 
   ```ruby
   class Hero
@@ -698,7 +698,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Template
-  - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template methods lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+  - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template methods lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.<sup>[[link](#template)]</sup>
 
   ```ruby
   class Hero
@@ -760,3 +760,4 @@ Examples of Patterns in Ruby
     end
   end
   ```
+  **[Back to top](#table-of-contents)**
