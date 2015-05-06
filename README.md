@@ -643,7 +643,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## State
-  - This pattern try to simplify complicate control flows changing an object's behaviour dynamically
+  - This pattern try to simplify complicate control flows changing an object's behaviour dynamically.<sup>[[link](#state)]</sup>
 
   ```ruby
   class Operation
