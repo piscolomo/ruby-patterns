@@ -285,7 +285,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Decorator
-  - Attach additional responsabilities to an object dinamically. Decorators provide a flexible alternative to subclassing for extending functionality.<sup>[[link](#decorator)]</sup>
+  - Attach additional responsabilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.<sup>[[link](#decorator)]</sup>
 
   ```ruby
   class ItemDecorator
@@ -610,7 +610,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Singleton
-  - Define an unique instance of an object.<sup>[[link](#singleton)]</sup>
+  - Define a unique instance of an object.<sup>[[link](#singleton)]</sup>
 
   ```ruby
   class HeroFactory
@@ -643,7 +643,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## State
-  - This pattern try to simplify complicate control flows changing an object's behaviour dynamically.<sup>[[link](#state)]</sup>
+  - This pattern tries to simplify complicated control flows changing an object's behavior dynamically.<sup>[[link](#state)]</sup>
 
   ```ruby
   class Operation
