@@ -285,7 +285,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Decorator
-  - Attach additional responsabilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.<sup>[[link](#decorator)]</sup>
+  - Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.<sup>[[link](#decorator)]</sup>
 
   ```ruby
   class ItemDecorator

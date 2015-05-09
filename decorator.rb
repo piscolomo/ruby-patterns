@@ -1,4 +1,4 @@
-# Attach additional responsabilities to an object dinamically. Decorators 
+# Attach additional responsibilities to an object dynamically. Decorators 
 # provide a flexible alternative to subclassing for extending functionality
 class ItemDecorator
   def initialize(item)
