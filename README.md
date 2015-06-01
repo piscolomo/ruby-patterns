@@ -23,10 +23,10 @@ Examples of Patterns in Ruby
   ```ruby
   class Quest
     attr_accessor :difficulty, :hero
-    
+
     def initialize(difficulty)
       @difficulty = difficulty
-      @hero = nil 
+      @hero = nil
     end
 
     def finish
@@ -226,7 +226,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Composite
-  - Composition over inheritance. Compose objects intro tree structures to represent part-whole hierarchies.<sup>[[link](#composite)]</sup>
+  - Composition over inheritance. Compose objects into tree structures to represent part-whole hierarchies.<sup>[[link](#composite)]</sup>
 
   ```ruby
   class CompositeQuest
@@ -558,7 +558,7 @@ Examples of Patterns in Ruby
     # of it's members, in this case the Computer object
     extend Forwardable
 
-    # We delegate the ComputerProxy's use of 
+    # We delegate the ComputerProxy's use of
     # the Computer object's add method
     def_delegators :real_object, :add
 
@@ -586,7 +586,7 @@ Examples of Patterns in Ruby
     def initialize
       @queue = []
     end
-    
+
     def add(command)
       @queue << command
     end
