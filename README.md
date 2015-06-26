@@ -490,7 +490,7 @@ Examples of Patterns in Ruby
 
     def initialize(attrs = {})
       super
-      @cursed = attrs.fetch(:cursed, :false)
+      @cursed = attrs.fetch(:cursed, false)
     end
 
     def cursed?
