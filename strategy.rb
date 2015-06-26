@@ -34,18 +34,15 @@ class SkillStats
 end
 
 # Usage
-Hero.new(BattleStats.new)
-Hero.print_stats
+Hero.new(BattleStats.new).print_stats
 # => Damage: 10
 #    Health: 5
 
-Hero.new(SkillStats.new)
-Hero.print_stats
+Hero.new(SkillStats.new).print_stats
 # => Stealth
 #    Driving
 #    Intimidation
 
-Hero.new(any_printer)
-Hero.print_stats do |damage, health, skills|
+Hero.new(any_printer).print_stats do |damage, health, skills|
   "Looks: I'm printing a customize message about my hero with damage #{damage} and number of skills: #{skills.size}"
 end
