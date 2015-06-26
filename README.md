@@ -161,6 +161,7 @@ Examples of Patterns in Ruby
     def initialize
       @commands = []
     end
+
     def run_command(command)
       command.execute
       @commands << command
@@ -172,7 +173,8 @@ Examples of Patterns in Ruby
   end
 
   class Hero
-    attr_reader :money, :health
+    attr_accessor :money, :health
+
     def initialize
       @money = 0
       @health = 100

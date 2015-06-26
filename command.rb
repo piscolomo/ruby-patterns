@@ -4,6 +4,7 @@ class Turn
   def initialize
     @commands = []
   end
+
   def run_command(command)
     command.execute
     @commands << command
@@ -15,7 +16,8 @@ class Turn
 end
 
 class Hero
-  attr_reader :money, :health
+  attr_accessor :money, :health
+
   def initialize
     @money = 0
     @health = 100
