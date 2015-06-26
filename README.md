@@ -438,7 +438,7 @@ Examples of Patterns in Ruby
     end
 
     def add_child(first_name, gender)
-      @children << Child.new first_name, gender
+      @children << Child.new(first_name, gender)
     end
 
     def each_member
