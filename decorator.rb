@@ -1,4 +1,4 @@
-# Attach additional responsibilities to an object dynamically. Decorators 
+# Attach additional responsibilities to an object dynamically. Decorators
 # provide a flexible alternative to subclassing for extending functionality
 class ItemDecorator
   def initialize(item)
@@ -44,13 +44,13 @@ end
 
 # Usage
 item = Item.new
-magic_item = MagicItemDecorator(item)
+magic_item = MagicItemDecorator.new(item)
 puts magic_item.price
 # => 30
 puts magic_item.description
 # => Item Magic
 
-masterpiece_item = MasterpieceItemDecorator(item)
+masterpiece_item = MasterpieceItemDecorator.new(item)
 puts masterpiece_item.price
 # => 20
 puts masterpiece_item.description
