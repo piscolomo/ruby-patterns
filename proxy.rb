@@ -1,3 +1,5 @@
+require 'forwardable'
+
 # Provide a surrogate or placeholder for another object to control
 # access to it
 class Hero
@@ -13,7 +15,7 @@ class ComputerProxy
   # of it's members, in this case the Computer object
   extend Forwardable
 
-  # We delegate the ComputerProxy's use of 
+  # We delegate the ComputerProxy's use of
   # the Computer object's add method
   def_delegators :real_object, :add
 
@@ -41,7 +43,7 @@ class Computer
   def initialize
     @queue = []
   end
-  
+
   def add(command)
     @queue << command
   end
