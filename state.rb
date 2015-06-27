@@ -12,7 +12,11 @@ end
 
 class OperationOpenState
   def next(state)
-    valid?(state) ? OperationPendingPaymentState.new : raise IllegalStateJumpError
+    if valid?(state)
+      OperationPendingPaymentState.new
+    else
+      raise IllegalStateJumpError
+    end
   end
 
   def valid?(state)

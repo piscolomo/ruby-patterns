@@ -161,6 +161,7 @@ Examples of Patterns in Ruby
     def initialize
       @commands = []
     end
+
     def run_command(command)
       command.execute
       @commands << command
@@ -172,7 +173,8 @@ Examples of Patterns in Ruby
   end
 
   class Hero
-    attr_reader :money, :health
+    attr_accessor :money, :health
+
     def initialize
       @money = 0
       @health = 100
@@ -267,14 +269,14 @@ Examples of Patterns in Ruby
 
   # Usage
   quest1 = Quest.new
-  quest1 << MonsterTask
-  quest1 << PuzzleTask
+  quest1 << MonsterTask.new
+  quest1 << PuzzleTask.new
   puts quest1.reward
   # => 300
 
   quest2 = Quest.new
-  quest2 << MonsterTask
-  quest2 << PuzzleTask
+  quest2 << MonsterTask.new
+  quest2 << PuzzleTask.new
   megaquest = MegaQuest.new
   megaquest << quest1
   megaquest << quest2
@@ -332,13 +334,13 @@ Examples of Patterns in Ruby
 
   # Usage
   item = Item.new
-  magic_item = MagicItemDecorator(item)
+  magic_item = MagicItemDecorator.new(item)
   puts magic_item.price
   # => 30
   puts magic_item.description
   # => Item Magic
 
-  masterpiece_item = MasterpieceItemDecorator(item)
+  masterpiece_item = MasterpieceItemDecorator.new(item)
   puts masterpiece_item.price
   # => 20
   puts masterpiece_item.description
@@ -436,7 +438,7 @@ Examples of Patterns in Ruby
     end
 
     def add_child(first_name, gender)
-      @children << Child.new first_name, gender
+      @children << Child.new(first_name, gender)
     end
 
     def each_member
@@ -488,7 +490,7 @@ Examples of Patterns in Ruby
 
     def initialize(attrs = {})
       super
-      @cursed = attrs.fetch(:cursed, :false)
+      @cursed = attrs.fetch(:cursed, false)
     end
 
     def cursed?
@@ -659,7 +661,11 @@ Examples of Patterns in Ruby
 
   class OperationOpenState
     def next(state)
-      valid?(state) ? OperationPendingPaymentState.new : raise IllegalStateJumpError
+      if valid?(state)
+        OperationPendingPaymentState.new
+      else
+        raise IllegalStateJumpError
+      end
     end
 
     def valid?(state)
@@ -734,19 +740,16 @@ Examples of Patterns in Ruby
   end
 
   # Usage
-  Hero.new(BattleStats.new)
-  Hero.print_stats
+  Hero.new(BattleStats.new).print_stats
   # => Damage: 10
   #    Health: 5
 
-  Hero.new(SkillStats.new)
-  Hero.print_stats
+  Hero.new(SkillStats.new).print_stats
   # => Stealth
   #    Driving
   #    Intimidation
 
-  Hero.new(any_printer)
-  Hero.print_stats do |damage, health, skills|
+  Hero.new(any_printer).print_stats do |damage, health, skills|
     "Looks: I'm printing a customize message about my hero with damage #{damage} and number of skills: #{skills.size}"
   end
   ```

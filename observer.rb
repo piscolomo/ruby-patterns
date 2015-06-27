@@ -23,7 +23,7 @@ class Tile
 
   def initialize(attrs = {})
     super
-    @cursed = attrs.fetch(:cursed, :false)
+    @cursed = attrs.fetch(:cursed, false)
   end
 
   def cursed?

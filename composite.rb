@@ -37,14 +37,14 @@ end
 
 # Usage
 quest1 = Quest.new
-quest1 << MonsterTask
-quest1 << PuzzleTask
+quest1 << MonsterTask.new
+quest1 << PuzzleTask.new
 puts quest1.reward
 # => 300
 
 quest2 = Quest.new
-quest2 << MonsterTask
-quest2 << PuzzleTask
+quest2 << MonsterTask.new
+quest2 << PuzzleTask.new
 megaquest = MegaQuest.new
 megaquest << quest1
 megaquest << quest2
