@@ -697,10 +697,8 @@ Examples of Patterns in Ruby
 
   ```ruby
   class HeroFactory
-    @@instance = nil
-
-    def self.instance
-      @@instance ||= HeroFactory.send(:new)
+    def self.new
+      @@instance ||= super
     end
 
     def create_warrior
@@ -710,17 +708,13 @@ Examples of Patterns in Ruby
     def create_mage
       Mage.new
     end
-
-    private_class_method :new
   end
 
   # Usage
-  factory = HeroFactory.instance
-  another_factory = HeroFactory.instance
+  factory = HeroFactory.new
+  another_factory = HeroFactory.new
   puts factory == another_factory
   # => true
-  HeroFactory.new
-  # => Raise Exception
   ```
 
 **[Back to top](#table-of-contents)**
