@@ -409,7 +409,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Interpreter
-  - This pattern provides an interpreter to deal with an abstract language. Using classes we can understand symbols to parse our inputs.<sup>[[link](#interpreter)]</sup>
+  - This pattern provides an interpreter to deal with an abstract language. Using classes we can understand the inputs for parse them.<sup>[[link](#interpreter)]</sup>
 
   ```ruby
   class Word

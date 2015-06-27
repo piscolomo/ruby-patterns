@@ -1,4 +1,4 @@
-#This pattern provides an interpreter to deal with an abstract language. Using classes we can understand symbols to parse our inputs.
+#This pattern provides an interpreter to deal with an abstract language. Using classes we can understand the inputs for parse them.
 class Word
   def initialize(value)
     @value = value
