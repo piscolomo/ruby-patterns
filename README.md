@@ -489,7 +489,7 @@ Examples of Patterns in Ruby
 **[Back to top](#table-of-contents)**
 
 ## Iterator
-  - Iterator helps you to iterate through a complex object using an interator method.<sup>[[link](#iterator)]</sup>
+  - Iterator helps you to iterate through a complex object using an iterator method.<sup>[[link](#iterator)]</sup>
 
   ```ruby
   class Parent
