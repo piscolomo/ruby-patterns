@@ -964,6 +964,9 @@ Examples of Patterns in Ruby
 
   game = GameFacade.new
   game.start_game
+  # => Sonic join Green Hill
+  #    Sonic kick Eggman
+  #    Eggman killed by Sonic
   ```
 
 **[Back to top](#table-of-contents)**

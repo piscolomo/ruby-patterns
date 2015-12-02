@@ -56,3 +56,6 @@ end
 
 game = GameFacade.new
 game.start_game
+# => Sonic join Green Hill
+#    Sonic kick Eggman
+#    Eggman killed by Sonic
