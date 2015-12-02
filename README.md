@@ -8,6 +8,7 @@ Examples of Patterns in Ruby
   1. [Command](#command)
   1. [Composite](#composite)
   1. [Decorator](#decorator)
+  1. [Facade](#facade)
   1. [Factory](#factory)
   1. [Interpreter](#interpreter)
   1. [Iterator](#iterator)
@@ -17,7 +18,6 @@ Examples of Patterns in Ruby
   1. [State](#state)
   1. [Strategy](#strategy)
   1. [Template](#template)
-  1. [Facade](#facade)
 
 ## Adapter
   - Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.<sup>[[link](#adapter)]</sup>
@@ -352,6 +352,75 @@ Examples of Patterns in Ruby
   item.use
   magic_item.use
   masterpiece_item.use
+  ```
+
+**[Back to top](#table-of-contents)**
+
+## Facade
+  - The goal of the Facade Pattern is to provide a unified interface to a set of interfaces in a subsystem. This means you'd just have some object that can send back other objects.<sup>[[link](#facade)]</sup>
+
+  ```ruby
+  class Hero
+    attr_reader :name
+
+    def initialize(name)
+      @name = name
+    end
+
+    def join(level)
+      puts "#{self.name} join #{level}\n"
+    end
+
+    def attack(enemy)
+      puts "#{self.name} kick #{enemy}\n"
+    end
+  end
+
+  class Enemy
+    attr_reader :name
+
+    def initialize(name)
+      @name = name
+    end
+
+    def dead(hero)
+      puts "#{self.name} killed by #{hero}"
+    end
+  end
+
+  class Level
+    attr_reader :stage
+
+    def initialize(stage)
+      @stage = stage
+    end
+
+    def to_s
+      stage
+    end
+  end
+
+  class GameFacade
+    attr_reader :hero, :enemy, :level
+
+    def initialize
+      @hero  = Hero.new('Sonic')
+      @enemy = Enemy.new('Eggman')
+      @level = Level.new('Green Hill')
+    end
+
+    def start_game
+      hero.join(level)
+      hero.attack(enemy.name)
+      enemy.dead(hero.name)
+    end
+  end
+
+  game = GameFacade.new
+  game.start_game
+  # => Sonic join Green Hill
+  #    Sonic kick Eggman
+  #    Eggman killed by Sonic
   ```
 
 **[Back to top](#table-of-contents)**
@@ -900,73 +969,6 @@ Examples of Patterns in Ruby
       "Mage is ready to make powerful spells!"
     end
   end
-  ```
-
-## Facade
-  - The goal of the Facade Pattern is to provide a unified interface to a set of interfaces in a subsystem. This means you'd just have some object that can send back other objects.<sup>[[link](#facade)]</sup>
-
-  ```ruby
-  class Hero
-    attr_reader :name
-
-    def initialize(name)
-      @name = name
-    end
-
-    def join(level)
-      puts "#{self.name} join #{level}\n"
-    end
-
-    def attack(enemy)
-      puts "#{self.name} kick #{enemy}\n"
-    end
-  end
-
-  class Enemy
-    attr_reader :name
-
-    def initialize(name)
-      @name = name
-    end
-
-    def dead(hero)
-      puts "#{self.name} killed by #{hero}"
-    end
-  end
-
-  class Level
-    attr_reader :stage
-
-    def initialize(stage)
-      @stage = stage
-    end
-
-    def to_s
-      stage
-    end
-  end
-
-  class GameFacade
-    attr_reader :hero, :enemy, :level
-
-    def initialize
-      @hero  = Hero.new('Sonic')
-      @enemy = Enemy.new('Eggman')
-      @level = Level.new('Green Hill')
-    end
-
-    def start_game
-      hero.join(level)
-      hero.attack(enemy.name)
-      enemy.dead(hero.name)
-    end
-  end
-
-  game = GameFacade.new
-  game.start_game
-  # => Sonic join Green Hill
-  #    Sonic kick Eggman
-  #    Eggman killed by Sonic
   ```
 
 **[Back to top](#table-of-contents)**
