@@ -57,8 +57,14 @@ end
 hero = Hero.new
 proxy = ComputerProxy.new(hero)
 proxy.add("some command")
-proxy.execute
-# => raise error
+begin
+  proxy.execute
+rescue Exception => e
+  # => error message - You have no access
+  puts e.message
+end
+
+
 hero.keywords << :computer
-proxy.execute
+puts proxy.execute
 # => executing commands
