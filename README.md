@@ -524,7 +524,7 @@ Examples of Patterns in Ruby
       input.split.each_with_index do |value|
         if value =~ /^[^+-].*/ && !@waiting_second_word
           words << Word.new(value)
-        else 
+        else
           if symbol = operations.pop()
             first = words.size > 1 ? Word.new(words.map(&:execute).join(" ")) :
               words.pop
@@ -698,6 +698,8 @@ Examples of Patterns in Ruby
   - Provide a surrogate or placeholder for another object to control access to it.<sup>[[link](#proxy)]</sup>
 
   ```ruby
+  require 'forwardable'
+
   class Hero
     attr_accessor :keywords
 
