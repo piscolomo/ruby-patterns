@@ -8,6 +8,7 @@ Examples of Patterns in Ruby
   1. [Command](#command)
   1. [Composite](#composite)
   1. [Decorator](#decorator)
+  1. [Mediator](#mediator)
   1. [Facade](#facade)
   1. [Factory](#factory)
   1. [Interpreter](#interpreter)
@@ -352,6 +353,148 @@ Examples of Patterns in Ruby
   item.use
   magic_item.use
   masterpiece_item.use
+  ```
+
+**[Back to top](#table-of-contents)**
+
+## Mediator
+  - The Mediator pattern promotes a "many-to-many relationship network" to "full object status". Modelling the inter-relationships with an object enhances encapsulation, and allows the behavior of those inter-relationships to be modified or extended through subclassing.
+
+  ```ruby
+  class StockOffer
+    attr_accessor :stock_shares, :stock_symbol, :colleague_code
+
+    def initialize(stock_shares, stock_symbol, colleague_code)
+      @stock_shares   = stock_shares
+      @stock_symbol   = stock_symbol
+      @colleague_code = colleague_code
+    end
+  end
+
+  class Colleague
+    attr_accessor :colleague_code
+
+    def initialize(mediator)
+      @mediator = mediator
+
+      @mediator.add_colleague(self)
+    end
+
+    def sale_offer(stock, shares)
+      @mediator.offer_send(stock, shares, @colleague_code, :sale)
+    end
+
+    def buy_offer(stock, shares)
+      @mediator.offer_send(stock, shares, @colleague_code, :buy)
+    end
+  end
+
+  class GormanSlacks < Colleague
+    def initialize(mediator)
+      super(mediator)
+
+      puts "Gorman Slacks signed up with the stockexchange\n"
+    end
+  end
+
+  class JTPoorman < Colleague
+    def initialize(mediator)
+      super(mediator)
+
+      puts "JT Poorman signed up with the stockexchange\n"
+    end
+  end
+
+  class StockMediator
+    attr_accessor :colleagues, :stock_buy_offers, :stock_sale_offers, :colleague_codes
+
+    def initialize
+      @colleague_codes = 0
+
+      @colleagues        = []
+      @stock_buy_offers  = []
+      @stock_sale_offers = []
+    end
+
+    def add_colleague(colleague)
+      colleagues << colleague
+
+      @colleague_codes += 1
+
+      colleague.colleague_code = colleague_codes
+    end
+
+    def offer_send(stock, shares, colleague_code, transaction_type)
+      stock_status = false
+      stock_offers = transaction_type == :buy ? stock_sale_offers : stock_buy_offers
+
+      stock_offers.each do |offer|
+        if offer.stock_symbol == stock && offer.stock_shares == shares
+          puts "#{shares} shares of #{stock} maked by operation #{transaction_type}, colleague code #{offer.colleague_code}"
+
+          stock_offers.delete(offer)
+          stock_status = true
+        end
+
+        break if stock_status
+      end
+
+      if !stock_status
+        puts "#{shares} shares of #{stock} added to inventory"
+
+        new_offering = StockOffer.new(shares, stock, colleague_code)
+
+        send("stock_#{transaction_type}_offers") << new_offering
+      end
+    end
+
+    def get_stock_offerings
+      puts "\n Stocks for Sale"
+
+      stock_sale_offers.each { |offer| puts "#{offer.stock_shares} of #{offer.stock_symbol}" }
+
+      puts "\n Stock buy Offers"
+
+      stock_buy_offers.each { |offer| puts "#{offer.stock_shares} of #{offer.stock_symbol}" }
+    end
+  end
+
+  class StockOffer
+    attr_accessor :stock_shares, :stock_symbol, :colleague_code
+
+    def initialize(stock_shares, stock_symbol, colleague_code)
+      @stock_shares   = stock_shares
+      @stock_symbol   = stock_symbol
+      @colleague_code = colleague_code
+    end
+  end
+
+  # Stock exchange
+  nyse = StockMediator.new
+
+  # Stock Exchange Brokers
+  gorman_slack_broker = GormanSlacks.new(nyse)
+  jt_poorman_broker   = JTPoorman.new(nyse)
+
+  # Transactions
+  gorman_slack_broker.buy_offer('NRG', 10)
+  jt_poorman_broker.sale_offer('NRG', 10)
+  gorman_slack_broker.buy_offer('GOOG', 100)
+  jt_poorman_broker.sale_offer('APPL', 50)
+
+  nyse.get_stock_offerings
+  # => Gorman Slacks signed up with the stockexchange
+  #    JT Poorman signed up with the stockexchange
+
+  #    10 shares of NRG added to inventory
+  #    10 shares of NRG maked by operation sale, colleague code 1
+  #    100 shares of GOOG added to inventory
+  #    50 shares of APPL added to inventory
+  #
+  #    Stocks for Sale
+  #     50 of APPL
+  #    Stock buy Offers
+  #     100 of GOOG
   ```
 
 **[Back to top](#table-of-contents)**
