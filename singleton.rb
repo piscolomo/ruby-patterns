@@ -1,10 +1,8 @@
+require 'singleton'
+
 # Define an unique instance of an object
 class HeroFactory
-  @@instance = nil
-
-  def self.instance
-    @@instance ||= HeroFactory.send(:new)
-  end
+  include Singleton
 
   def create_warrior
     Warrior.new
