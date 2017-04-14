@@ -13,11 +13,8 @@ class CompositeQuest
   end
 end
 
-class MegaQuest < CompositeQuest
-end
-
-class Quest < CompositeQuest
-end
+class MegaQuest < CompositeQuest; end
+class Quest < CompositeQuest; end
 
 class MonsterTask
   attr_reader :reward
@@ -41,7 +38,6 @@ quest1 << MonsterTask.new
 quest1 << PuzzleTask.new
 puts quest1.reward
 # => 300
-
 quest2 = Quest.new
 quest2 << MonsterTask.new
 quest2 << PuzzleTask.new
