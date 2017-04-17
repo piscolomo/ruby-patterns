@@ -60,7 +60,7 @@ Examples of Patterns in Ruby
   end
 
   class OldQuest
-    attr_accessor :hero, :difficulty, :experience
+    attr_accessor :difficulty, :experience
 
     def initialize
       @difficulty = 3
@@ -131,6 +131,7 @@ Examples of Patterns in Ruby
 
   class Board
     attr_accessor :width, :height, :tiles, :monsters
+    
     def initialize
     end
   end
@@ -247,11 +248,8 @@ Examples of Patterns in Ruby
     end
   end
 
-  class MegaQuest < CompositeQuest
-  end
-
-  class Quest < CompositeQuest
-  end
+  class MegaQuest < CompositeQuest; end
+  class Quest < CompositeQuest; end
 
   class MonsterTask
     attr_reader :reward
@@ -296,6 +294,7 @@ Examples of Patterns in Ruby
     def initialize(item)
       @item = item
     end
+
     # this needs to be delegated with other efective way
     def use
       @item.use
@@ -324,6 +323,7 @@ Examples of Patterns in Ruby
 
   class Item
     attr_reader :price, :description
+
     def initialize
       @price = 10
       @description = "Item "
@@ -431,6 +431,7 @@ Examples of Patterns in Ruby
   ```ruby
   class Party
     attr_reader :members
+
     def initialize(factory)
       @members = []
       @factory = factory
@@ -460,11 +461,8 @@ Examples of Patterns in Ruby
     end
   end
 
-  class Warrior < Hero
-  end
-
-  class Mage < Hero
-  end
+  class Warrior < Hero; end
+  class Mage < Hero; end
 
   # Usage
   party = Party.new(HeroFactory.new)
@@ -548,10 +546,8 @@ Examples of Patterns in Ruby
 
   puts Interpreter.parse("NA + NA + NA + BATMAN")
   #=> NANANABATMAN
-
   puts Interpreter.parse("you know nothing Jon Snow - nothing")
   #=> you know Jon Snow
-
   puts Interpreter.parse("hello + world - llowo")
   #=>herld
   ```
@@ -571,8 +567,7 @@ Examples of Patterns in Ruby
     end
   end
 
-  class Child < Parent
-  end
+  class Child < Parent; end
 
   class Family
     def initialize(surname)
@@ -803,6 +798,7 @@ Examples of Patterns in Ruby
   ```ruby
   class Operation
     attr_reader :state
+
     def initialize
       @state = OperationOpenState.new
     end
@@ -835,6 +831,7 @@ Examples of Patterns in Ruby
       state == :confirm
     end
   end
+  
   class IllegalStateJumpError < StandardError; end
   class OperationConfirmState; end
 

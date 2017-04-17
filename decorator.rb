@@ -4,7 +4,8 @@ class ItemDecorator
   def initialize(item)
     @item = item
   end
-  # this needs to be delegated with other efective way
+
+  # this needs to be delegated with other effective way
   def use
     @item.use
   end
@@ -32,6 +33,7 @@ end
 
 class Item
   attr_reader :price, :description
+  
   def initialize
     @price = 10
     @description = "Item "

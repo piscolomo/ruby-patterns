@@ -1,6 +1,7 @@
 #This pattern try to simplify complicate control flows changing an object's behaviour dynamically
 class Operation
   attr_reader :state
+
   def initialize
     @state = OperationOpenState.new
   end
@@ -33,6 +34,7 @@ class OperationPendingPaymentState
     state == :confirm
   end
 end
+
 class IllegalStateJumpError < StandardError; end
 class OperationConfirmState; end
 
