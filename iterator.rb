@@ -1,6 +1,5 @@
 # Iterator helps you to iterate through a complex object using
 # an iterator method
-
 class Parent
   attr_reader :first_name
 
@@ -10,8 +9,7 @@ class Parent
   end
 end
 
-class Child < Parent
-end
+class Child < Parent; end
 
 class Family
   def initialize(surname)

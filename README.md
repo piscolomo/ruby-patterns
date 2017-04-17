@@ -60,7 +60,7 @@ Examples of Patterns in Ruby
   end
 
   class OldQuest
-    attr_accessor :hero, :difficulty, :experience
+    attr_accessor :difficulty, :experience
 
     def initialize
       @difficulty = 3
@@ -131,6 +131,7 @@ Examples of Patterns in Ruby
 
   class Board
     attr_accessor :width, :height, :tiles, :monsters
+    
     def initialize
     end
   end
