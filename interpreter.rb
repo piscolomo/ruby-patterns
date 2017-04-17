@@ -65,9 +65,7 @@ end
 
 puts Interpreter.parse("NA + NA + NA + BATMAN")
 #=> NANANABATMAN
-
 puts Interpreter.parse("you know nothing Jon Snow - nothing")
 #=> you know Jon Snow
-
 puts Interpreter.parse("hello + world - llowo")
 #=>herld
