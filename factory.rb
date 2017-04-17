@@ -2,6 +2,7 @@
 # class to instantiate
 class Party
   attr_reader :members
+
   def initialize(factory)
     @members = []
     @factory = factory
@@ -31,11 +32,8 @@ class Hero
   end
 end
 
-class Warrior < Hero
-end
-
-class Mage < Hero
-end
+class Warrior < Hero; end
+class Mage < Hero; end
 
 # Usage
 party = Party.new(HeroFactory.new)

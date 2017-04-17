@@ -13,11 +13,8 @@ class CompositeQuest
   end
 end
 
-class MegaQuest < CompositeQuest
-end
-
-class Quest < CompositeQuest
-end
+class MegaQuest < CompositeQuest; end
+class Quest < CompositeQuest; end
 
 class MonsterTask
   attr_reader :reward
